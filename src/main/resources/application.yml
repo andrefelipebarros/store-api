@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: store-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/store}
+    username: ${DB_USER:store}
+    password: ${DB_PASSWORD:store}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:troque-esta-chave-por-uma-com-mais-de-32-caracteres}
+    expiration-ms: 3600000
+  admin:
+    email: ${ADMIN_EMAIL:admin@store.com}
+    password: ${ADMIN_PASSWORD:admin123}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
